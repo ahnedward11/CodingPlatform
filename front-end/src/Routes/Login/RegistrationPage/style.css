@@ -1,0 +1,24 @@
+
+:root {
+    --blue: hsl(210 100% 60%);
+}
+
+.input-field {
+    transition: 0.2s border-color ease-in-out;
+}
+
+.input-field:focus {
+    border: 2px solid var(--blue);
+}
+
+li {
+    line-height: 1.15em;
+    padding: 0;
+    margin: 0 0.25em 0.5em 0.25em;
+}
+
+.no-space {
+    line-height: 1.15em;
+    padding: 0 !important;
+    margin: 0 0.25em 0.5em 0.25em;
+}

@@ -1,0 +1,9 @@
+
+li {
+    line-height: 1.5rem;
+    margin: 1rem;
+}
+
+code {
+    background: var(--light-blue);
+}

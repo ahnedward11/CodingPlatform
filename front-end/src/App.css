@@ -1,0 +1,688 @@
+
+/* Allow the web content to fill up to the border of the browser window */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Within the root element of the document, we can initialize global variables to be used
+     with any other elements */
+  --white: #FFFFFF;
+  --whitesmoke: #F5F5F5;
+  --light-gray: #B3B3B3;
+  --gray : #808080;
+  --black: #000000;
+  --red: #EB5757;
+  --crimson: #DC143C;
+  --emerald-green: #50C878;
+  --forest-green: #27AE60;
+  --baby-blue: #0096FF;
+  --light-blue: #F6F8FA;
+  --light-yellow: #FFFFE0;
+  --color-correct: hsl(130 52% 46%);   /* lime green */
+  --color-incorrect: hsl(18 100% 50%);   /* red orange */
+  --box-shadow: 0 1px 22px -12px #607D8B;
+  --box-shadow-heavy: 0 0.3em 0.5em rgba(0, 0, 0, 0.39), 0 0.3em 0.5em rgba(0, 0, 0, 0.43);
+}
+
+body {
+  /* `display: flex` allows items to fill up container space and wrap to the next line as necessary */
+  display: flex;
+  font-size: 1.1rem;
+  font-family: 'Google Sans', sans-serif, system-ui;
+  overflow: scroll;
+  background-color: var(--white);
+}
+
+/* Login & Registration Page */
+
+/* `#` defines an id which can only be applied to one element;
+   `.` defines a class which can be applied to multiple elements */
+.login-page {
+  display: flex;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--whitesmoke);
+}
+
+.login-container {
+  max-width: 50vw;
+  border-radius: 10px;
+  background-color: var(--white);
+  padding: 5em;
+  margin: auto;
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 2em
+}
+
+.input-field {
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1.25rem;
+  margin: 0.25em 0;
+  padding: 0.5em
+}
+
+.login-button {
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.25rem;
+  background-color: var(--forest-green);
+  padding: 0.5em 1em;
+  margin: 2em auto 1em;
+  transition: 0.1s background-color ease-in;
+}
+
+/* We can also define effects when the user mouse hovers above them */
+.login-button:hover {
+  cursor: pointer;
+  background-color: #3EDF60;
+}
+
+.link {
+  display: block;
+  color: #000000;
+  text-decoration: underline;
+  text-align: center;
+  margin: auto;
+  transition: 0.1s color ease-in;
+}
+
+.link:hover {
+  color: var(--light-gray);
+}
+
+/* Settings Page */
+
+nav {
+  display: flex;
+  width: 100vw;
+  max-height: 20vh;
+  background-color: var(--whitesmoke);
+}
+
+#navbar-left-tabs {
+  display: inline-block;
+  max-width: 80vw;
+}
+
+/* Title of current page */
+#navbar-left-top {
+  padding: 1.25em;
+}
+
+/* Left tab buttons */
+#navbar-left-bottom {
+
+}
+
+/* Home/Settings tab buttons */
+#navbar-right-tabs {
+  display: flex;
+  max-width: 20vw;
+  place-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding: 2em;
+}
+
+.button-tab {
+  border: none;
+  border-radius: 5px;
+  font-weight: bolder;
+  text-decoration: none;
+  user-select: none;
+  color: var(--black);
+  background-color: var(--light-gray);
+  padding: 0.5em 1.5em;
+  margin: auto 0.5em auto auto;
+  transition: 0.1s background-color ease-in;
+}
+
+.button-tab:hover {
+  background-color: var(--white);
+}
+
+#main-container {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: var(--white);
+  padding: 2em 4em 8em 4em;
+}
+
+.user-profile-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  align-items: center;
+  margin-right: 2em;
+}
+
+.user-profile-label {
+  margin-bottom: 1em;
+}
+
+.user-greeting-label {
+  margin-top: 2em;
+}
+
+.user-profile-img {
+  max-width: 10rem;
+  max-height: 10rem;
+  border-radius: 50%;
+}
+
+.user-profile-upload {
+  border: none;
+  width: 100%;
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: 1.15rem;
+  color: var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  padding: 1em 0 0 0;
+  transition: 0.1s color ease-in;
+}
+
+.user-profile-upload:hover {
+  color: var(--light-gray);
+}
+
+.user-settings-form {
+  padding: 2em;
+  outline: none;
+}
+
+.user-settings-field {
+  display: inline-block;
+  width: 100%;
+  outline: none;
+}
+
+label {
+  width: 16vw;
+  float: left;
+  margin: 1em 0;
+}
+
+p {
+  word-wrap: break-word;
+}
+
+.settings-input {
+  width: 30%;
+  outline: none;
+}
+
+.button-container {
+  position: relative;
+  padding: 1em;
+}
+
+.button-edit {
+  position: absolute;
+  top: 30%;
+  left: 32.5%;
+  width: 15vw;
+  font-size: 1.15rem;
+  text-align: center;
+  margin-top: 1em;
+  transition: 0.1s background-color ease-in;
+}
+
+.button-edit:hover {
+  cursor: pointer;
+  background-color: var(--whitesmoke);
+}
+
+/* Problems */
+
+#problems-container {
+  display: flex;
+  padding-top: 2em;
+}
+
+#coding-problem-container {
+  width: auto;
+  line-height: 1.5rem;
+}
+
+#coding-editor-wrapper {
+  min-width: 42.5%;
+  min-height: 95%;
+  margin: 0 0 0 2em;
+}
+
+.editor {
+  counter-reset: line;
+  border: 1px solid #ced4da;
+}
+
+.editor #codeArea {
+  outline: none;
+  padding-left: 50px !important;
+}
+
+.editor pre {
+  padding-left: 50px !important;
+}
+
+.editor .editorLineNumber {
+  position: absolute;
+  left: 0;
+  color: #aaaaaa;
+  text-align: right;
+  min-width: 30px;
+  width: auto;
+  font-weight: 100;
+}
+
+li {
+  line-height: 1.5rem;
+  margin: 1rem;
+}
+
+code {
+  border-radius: 5px;
+  font-family: "Courier New", monospace, monospace;
+  font-weight: 800;
+  white-space: break-spaces;
+  padding: 0.5vh 0.3vw;
+}
+
+.inline-code {
+  background: var(--light-blue);
+  padding: 0.1rem 0.3rem;
+}
+
+.button-compile-code {
+  width: 15vw;
+  float: right;
+  background-color: var(--light-gray);
+  font-size: 1.15rem;
+  text-align: center;
+  margin-top: 1em;
+  transition: 0.1s background-color ease-in;
+}
+
+.button-compile-code:hover {
+  cursor: pointer;
+  background-color: var(--emerald-green);
+}
+
+#page-button {
+  background-color: var(--whitesmoke);
+  transition: 0.1s background-color ease-in;
+}
+
+#page-button:hover {
+  background-color: var(--light-gray);
+}
+
+#daily-exercise-preview {
+  margin: 0 0 0 3em;
+}
+
+.sticky-container {
+  min-width: 30%;
+  position: sticky;
+  top: 5vh;
+  max-height: 100vh;
+  overflow: scroll;
+}
+
+.problem-sticky-container {
+  width: 55vw;
+  height: 100vh;
+}
+
+/* Problem Solutions */
+
+.vote-container {
+  transition: 0.1s transform ease-in-out;
+}
+
+.vote-container:active {
+  transform: scale(1.2);
+}
+
+/* Management Pages */
+
+#management-container {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.account-management-container {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-bottom: 0.5em;
+}
+
+.management-column {
+  width: 33%;
+  margin: 0.25em;
+}
+
+.button-delete {
+  left: 20%;
+  background-color: var(--red);
+  transition: 0.1s background-color ease-in;
+}
+
+.button-delete:hover {
+  cursor: pointer;
+  background-color: var(--color-incorrect);
+}
+
+#error-boundary-img {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#admin-home-container {
+  width: 80%;
+}
+
+.admin-problem-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-problem-column {
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.admin-problem-tile {
+  position: relative;
+  width: 15em;
+  border-radius: 5px;
+  border: 2px solid var(--light-gray);
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+  margin: 1em auto auto auto;
+  transition: 0.3s all ease-in-out;
+  transition-delay: 0.1s;
+}
+
+.problem-tile-easy {
+  background-image: radial-gradient( circle farthest-corner at 50%,  rgba(239,255,249,1) 0%, rgba(206,239,253,1) 90% );
+}
+
+.problem-tile-medium {
+  background-image: linear-gradient( 109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1% );
+}
+
+.problem-tile-hard {
+  background-image: radial-gradient( circle 905px at 50%, rgba(255,243,242,1) 0.1%, rgba(255,247,220,1) 57.6% );
+}
+
+.admin-problem-tile::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient( circle 900px at 50%, rgba(255,255,255,1) 0%, rgba(138,192,216,1) 90% );
+  opacity: 0;
+  z-index: -1;
+  transition: 0.3s all ease-in-out;
+}
+
+.admin-problem-tile:hover::before {
+  border-radius: 5px;
+  opacity: 1;
+}
+
+.admin-problem-tile:hover {
+  border: 2px solid var(--black);
+}
+
+.tile-absolute {
+  position: absolute;
+  border-radius: 5px;
+  width: 15em;
+}
+
+.tile-problem-title {
+  position: relative;
+  color: var(--black);
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 800;
+  padding: 1em;
+}
+
+.admin-problem-tile .tile-pie-chart {
+  position: absolute;
+  top: -200%;
+  left: 100%;
+  width: 20em;
+  height: auto;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: var(--box-shadow);
+  transition: 0.2s all ease-in-out;
+  transition-delay: 0.1s;
+}
+
+.tile-pie-chart {
+  z-index: 10 !important;
+}
+
+.admin-problem-tile:hover .tile-pie-chart {
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Adjust the UI styles for smaller displays, particularly for mobile devices */
+@media (max-width: 1050px) {
+  .login-container {
+    max-width: 80vw;
+    padding: 3em 1em;
+  }
+
+  nav {
+    max-height: 10vh;
+  }
+
+  #navbar-left-tabs {
+    display: none;
+  }
+
+  #navbar-right-tabs {
+    max-width: 30vw;
+    padding: 0;
+    margin: 0 0 0 auto;
+  }
+
+  #main-container {
+    flex-flow: column nowrap;
+    place-items: center;
+    padding: 1em 1em 6em 1em;
+    margin: 0;
+  }
+
+  .user-profile-wrapper {
+    margin: 0;
+  }
+
+  .user-profile-upload {
+    padding: 1em;
+  }
+
+  .user-settings-form {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .no-media-margin {
+    margin: 0;
+  }
+
+  label {
+    width: 40vw;
+  }
+
+  .user-settings-input > input {
+    width: 35%;
+  }
+
+  .button-edit {
+    left: 25%;
+    min-width: 40vw;
+  }
+
+  #problems-container {
+    display: block;
+  }
+
+  #coding-problem-container {
+    width: auto;
+    padding-bottom: 2em;
+  }
+
+  #coding-editor-wrapper {
+    width: 100%;
+    padding-top: 1em;
+    margin: 0;
+  }
+
+  .button-compile-code {
+    width: 50vw;
+    transition: 0.2s background-color ease-in;
+  }
+
+  .account-management-container {
+    width: 100%;
+  }
+
+  #daily-exercise-preview {
+    margin: 0 1em;
+  }
+
+  .sticky-container {
+    position: relative;
+    top: auto;
+  }
+
+  .problem-sticky-container {
+    width: 100vw;
+  }
+
+  .hide-on-media {
+    display: none;
+  }
+
+  .management-column {
+    width: 45%;
+    max-width: 45%;
+  }
+
+  #admin-home-container {
+    width: 100%;
+  }
+
+  .admin-problem-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admin-problem-tile .tile-pie-chart {
+    top: 20%;
+    left: -16.5%;
+    width: 20em;
+  }
+}
+
+/* Custom toast notification styles */
+.Toastify__toast--error {
+  border: 1px solid #EB5757;
+  background: #FAE1E2 !important;
+  user-select: none;
+}
+.Toastify__toast--error::after {
+  position: absolute;
+  color: #222222;
+  font-size: 15px;
+  font-weight: 700;
+  left: 265px;
+  padding-top: 14px !important;
+}
+.Toastify__toast--error::before {
+  position: relative;
+  z-index: 100000;
+  left: 12px;
+  top: 6px;
+}
+.Toastify__toast--success {
+  border: 1px solid #3A9EA5 !important;
+  background: #F0F9FA !important;
+  user-select: none;
+}
+.Toastify__toast--success::before {
+  position: relative;
+  z-index: 100000;
+  left: 12px;
+  top: 6px;
+}
+.Toastify__toast--success::after {
+  position: absolute;
+  color: #222222;
+  font-size: 15px;
+  font-weight: 700;
+  left: 265px;
+  padding-top: 14px !important;
+}
+.Toastify__toast--warning {
+  border: 1px solid #E78326  !important;
+  background: #FADFC5 !important;
+  user-select: none;
+}
+.Toastify__toast--warning::before {
+  position: relative;
+  z-index: 100000;
+  left: 12px;
+  top: 6px;
+}
+.Toastify__toast--warning::after {
+  position: absolute;
+  color: #E78326;
+  font-size: 15px;
+  font-weight: 700;
+  left: 265px;
+  padding-top: 14px !important;
+}
+.Toastify__toast-body {
+  color: #444C63;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 0 25px 0 0;
+  width: 100%;
+  font-weight: 400;
+  margin-left: 10px !important;
+  user-select: none;
+  white-space: pre-line;
+}
+
+.Toastify__toast > button > svg {
+  display: none;
+}
